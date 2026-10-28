@@ -51,7 +51,7 @@
 #include "modules/StoreForwardModule.h"
 #endif
 #endif
-#if HAS_TELEMETRY
+#if HAS_TELEMETRY && !defined(MESHTASTIC_EXCLUDE_DEVICE_TELEMETRY)
 #include "modules/Telemetry/DeviceTelemetry.h"
 #endif
 #if HAS_SENSOR && !MESHTASTIC_EXCLUDE_ENVIRONMENTAL_SENSOR
@@ -185,7 +185,7 @@ void setupModules()
 #if ARCH_PORTDUINO
     new HostMetricsModule();
 #endif
-#if HAS_TELEMETRY
+#if HAS_TELEMETRY && !defined(MESHTASTIC_EXCLUDE_DEVICE_TELEMETRY)
     new DeviceTelemetryModule();
 #endif
 #if HAS_TELEMETRY && HAS_SENSOR && !MESHTASTIC_EXCLUDE_ENVIRONMENTAL_SENSOR
